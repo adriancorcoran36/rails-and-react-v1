@@ -1,25 +1,22 @@
 import React from "react";
-const data = {
-  images: [
-    {
-      id: "1",
-      title: '"Evening sunset over fields"',
-    },
-    {
-      id: "2",
-      title: '"Happy child"',
-    },
-    {
-      id: "3",
-      title: '"Traffic in the morning"',
-    },
-  ],
-};
-const loading = false;
+import gql from "graphql-tag";
+import { useQuery } from "@apollo/client";
+import { withProvider } from "../graphqlProvider";
+
+const imagesQuery = gql`
+  query Images {
+    images {
+      id
+      title
+    }
+  }
+`;
 const Image: React.FunctionComponent = ({ title }) => {
   return <li>{title}</li>;
 };
 const Images = () => {
+  const { data, loading } = useQuery(imagesQuery);
+
   if (loading) {
     return <span>"Loading..."</span>;
   }
@@ -34,4 +31,4 @@ const Images = () => {
     </div>
   );
 };
-export default Images;
+export default withProvider(Images);
