@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App";
+import Getty from "./Getty";
 
 export default function mount() {
   document.addEventListener("DOMContentLoaded", () => {
@@ -12,7 +12,7 @@ export default function mount() {
       const props = JSON.parse(dataset["props"]) || {};
       // mount react app
       const root = createRoot(mountPoint);
-      root.render(<App {...props} />);
+      root.render(<Getty {...props} />);
     } else {
       // emit mounting error to Javascript Error Logging Software (Bugsnag?)
     }

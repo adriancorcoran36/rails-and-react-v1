@@ -12,6 +12,7 @@
     "graphql": "^16.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.3.0",
     "turbolinks": "^5.2.0",
     "typescript": "^4.7.4",
     "webpack": "^4.46.0",
@@ -20,12 +21,12 @@
   "version": "0.1.0",
   "devDependencies": {
     "@graphql-codegen/cli": "2.11.6",
-    "webpack-dev-server": "^3",
-    "@graphql-codegen/typescript-react-apollo": "3.3.3",
+    "@graphql-codegen/typescript": "2.7.3",
     "@graphql-codegen/typescript-document-nodes": "2.3.3",
-    "@graphql-codegen/typescript-operations": "2.5.3",
     "@graphql-codegen/typescript-graphql-files-modules": "2.2.1",
-    "@graphql-codegen/typescript": "2.7.3"
+    "@graphql-codegen/typescript-operations": "2.5.3",
+    "@graphql-codegen/typescript-react-apollo": "3.3.3",
+    "webpack-dev-server": "^3"
   },
   "scripts": {
     "gql:codegen": "graphql-codegen --config codegen.yml"

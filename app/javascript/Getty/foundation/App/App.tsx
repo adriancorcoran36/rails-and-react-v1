@@ -1,12 +1,12 @@
 import React from "react";
-import { useImagesQuery } from "graphql/types";
+import { BrowserRouter } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   HttpLink,
 } from "@apollo/client";
-import { Image } from "./components";
+import { FeatureRoutes } from "../FeatureRoutes";
 
 const csrfToken = document
   .querySelector("meta[name=csrf-token]")
@@ -22,28 +22,12 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const MainComponent = () => {
-  const { data: imagesData, loading } = useImagesQuery();
-
-  if (loading) {
-    return <span>"Loading..."</span>;
-  }
-  return (
-    <div>
-      <h1>Images</h1>
-      <ul>
-        {imagesData.images.map(({ id, title, downloads }) => (
-          <Image title={title} downloads={downloads} key={id} />
-        ))}
-      </ul>
-    </div>
-  );
-};
-
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <MainComponent />
+      <BrowserRouter>
+        <FeatureRoutes />
+      </BrowserRouter>
     </ApolloProvider>
   );
 };
