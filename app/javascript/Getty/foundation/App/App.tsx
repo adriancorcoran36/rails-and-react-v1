@@ -6,6 +6,7 @@ import {
   ApolloProvider,
   HttpLink,
 } from "@apollo/client";
+import { Page } from "../Page";
 import { FeatureRoutes } from "../FeatureRoutes";
 
 const csrfToken = document
@@ -26,7 +27,9 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <BrowserRouter>
-        <FeatureRoutes />
+        <Page>
+          <FeatureRoutes />
+        </Page>
       </BrowserRouter>
     </ApolloProvider>
   );

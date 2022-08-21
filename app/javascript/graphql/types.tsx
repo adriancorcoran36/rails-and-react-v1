@@ -19,10 +19,25 @@ export type Scalars = {
 
 export type Image = {
   __typename?: 'Image';
+  collection?: Maybe<Scalars['String']>;
   createdAt: Scalars['ISO8601DateTime'];
-  downloads?: Maybe<Scalars['Int']>;
+  creativeNumber: Scalars['Int'];
+  credit?: Maybe<Scalars['String']>;
+  extraSmallDetails: Scalars['String'];
+  extraSmallPrice: Scalars['Int'];
+  groupId: Scalars['Int'];
+  handle: Scalars['String'];
   id: Scalars['ID'];
-  title?: Maybe<Scalars['String']>;
+  largeDetails: Scalars['String'];
+  largePrice: Scalars['Int'];
+  licenceType?: Maybe<Scalars['String']>;
+  mediumDetails: Scalars['String'];
+  mediumPrice: Scalars['Int'];
+  releaseInfo?: Maybe<Scalars['String']>;
+  smallDetails: Scalars['String'];
+  smallPrice: Scalars['Int'];
+  subtitle?: Maybe<Scalars['String']>;
+  title: Scalars['String'];
   updatedAt: Scalars['ISO8601DateTime'];
 };
 
@@ -40,7 +55,7 @@ export type Query = {
 export type ImagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ImagesQuery = { __typename?: 'Query', images: Array<{ __typename?: 'Image', id: string, title?: string | null, downloads?: number | null }> };
+export type ImagesQuery = { __typename?: 'Query', images: Array<{ __typename?: 'Image', id: string, title: string }> };
 
 
 export const ImagesDocument = gql`
@@ -48,7 +63,6 @@ export const ImagesDocument = gql`
   images {
     id
     title
-    downloads
   }
 }
     `;

@@ -12,9 +12,30 @@
 
 ActiveRecord::Schema.define(version: 2022_08_21_115412) do
 
+  # create_table "images", force: :cascade do |t|
+  #   t.string "title"
+  #   t.datetime "created_at", precision: 6, null: false
+  #   t.datetime "updated_at", precision: 6, null: false
+  # end  
+
   create_table "images", force: :cascade do |t|
-    t.string "title"
-    t.integer "downloads"
+    t.integer "group_id", null: false
+    t.integer "creative_number", null: false
+    t.string "handle", null: false
+    t.string "title", null: false
+    t.string "subtitle"
+    t.integer "extra_small_price", null: false
+    t.string "extra_small_details", null: false
+    t.integer "small_price", null: false
+    t.string "small_details", null: false
+    t.integer "medium_price", null: false
+    t.string "medium_details", null: false
+    t.integer "large_price", null: false
+    t.string "large_details", null: false
+    t.string "credit"
+    t.string "licence_type"
+    t.string "collection"
+    t.string "release_info"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

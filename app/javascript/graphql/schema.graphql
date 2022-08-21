@@ -4,10 +4,25 @@ An ISO 8601-encoded datetime
 scalar ISO8601DateTime
 
 type Image {
+  collection: String
   createdAt: ISO8601DateTime!
-  downloads: Int
+  creativeNumber: Int!
+  credit: String
+  extraSmallDetails: String!
+  extraSmallPrice: Int!
+  groupId: Int!
+  handle: String!
   id: ID!
-  title: String
+  largeDetails: String!
+  largePrice: Int!
+  licenceType: String
+  mediumDetails: String!
+  mediumPrice: Int!
+  releaseInfo: String
+  smallDetails: String!
+  smallPrice: Int!
+  subtitle: String
+  title: String!
   updatedAt: ISO8601DateTime!
 }
 
