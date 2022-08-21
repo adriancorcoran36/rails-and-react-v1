@@ -1,27 +1,20 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import App from "./App";
 
-export default function mount(components = {}) {
+export default function mount() {
   document.addEventListener("DOMContentLoaded", () => {
-    const mountPoints = document.querySelectorAll("[data-react-component]");
+    const mountPoint = document.getElementById("App");
 
-    mountPoints.forEach((mountPoint) => {
+    if (mountPoint) {
+      // get props
       const dataset = (mountPoint as HTMLElement).dataset;
-      const componentName = dataset["reactComponent"];
-      const Component = components[componentName];
-
-      if (Component) {
-        const props = JSON.parse(dataset["props"]);
-        const rootElement = mountPoint;
-        const root = createRoot(rootElement);
-        root.render(<Component {...props} />);
-      } else {
-        console.log(
-          "WARNING: No component found for: ",
-          dataset.reactComponent,
-          components
-        );
-      }
-    });
+      const props = JSON.parse(dataset["props"]) || {};
+      // mount react app
+      const root = createRoot(mountPoint);
+      root.render(<App {...props} />);
+    } else {
+      // emit mounting error to Javascript Error Logging Software (Bugsnag?)
+    }
   });
 }

@@ -9,11 +9,9 @@ import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 
 import mount from "../mount";
-import Hello from "./hello_react";
-import Images from "../Images";
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-mount({ Hello, Images });
+mount();
