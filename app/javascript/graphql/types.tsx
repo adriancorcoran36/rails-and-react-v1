@@ -20,6 +20,7 @@ export type Scalars = {
 export type Image = {
   __typename?: 'Image';
   createdAt: Scalars['ISO8601DateTime'];
+  downloads?: Maybe<Scalars['Int']>;
   id: Scalars['ID'];
   title?: Maybe<Scalars['String']>;
   updatedAt: Scalars['ISO8601DateTime'];
@@ -39,7 +40,7 @@ export type Query = {
 export type ImagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ImagesQuery = { __typename?: 'Query', images: Array<{ __typename?: 'Image', id: string, title?: string | null }> };
+export type ImagesQuery = { __typename?: 'Query', images: Array<{ __typename?: 'Image', id: string, title?: string | null, downloads?: number | null }> };
 
 
 export const ImagesDocument = gql`
@@ -47,6 +48,7 @@ export const ImagesDocument = gql`
   images {
     id
     title
+    downloads
   }
 }
     `;

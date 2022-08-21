@@ -5,6 +5,7 @@ scalar ISO8601DateTime
 
 type Image {
   createdAt: ISO8601DateTime!
+  downloads: Int
   id: ID!
   title: String
   updatedAt: ISO8601DateTime!

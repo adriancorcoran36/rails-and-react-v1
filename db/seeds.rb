@@ -5,6 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Image.create!(title: "Evening sunset over fields")
-Image.create!(title: "Happy child")
-Image.create!(title: "Traffic in the morning")
+Image.create!(title: "Evening sunset over fields", downloads: 134)
+Image.create!(title: "Happy child", downloads: 1004)
+Image.create!(title: "Traffic in the morning", downloads: 845)
