@@ -1,7 +1,9 @@
 import React from "react";
 import gql from "graphql-tag";
-import { useQuery } from "@apollo/client";
 import { withProvider } from "../graphqlProvider";
+// import { useQuery } from "@apollo/client";
+// import { ImagesQuery } from "../graphql/types";
+import { useImagesQuery } from "graphql/types";
 
 const imagesQuery = gql`
   query Images {
@@ -15,7 +17,8 @@ const Image: React.FunctionComponent = ({ title }) => {
   return <li>{title}</li>;
 };
 const Images = () => {
-  const { data, loading } = useQuery(imagesQuery);
+  const { data, loading } = useImagesQuery();
+  // const { data, loading } = useQuery<ImagesQuery>(imagesQuery);
 
   if (loading) {
     return <span>"Loading..."</span>;
