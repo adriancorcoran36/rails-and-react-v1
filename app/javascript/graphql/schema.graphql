@@ -35,7 +35,19 @@ type Mutation {
 }
 
 type Query {
+  """
+  All images in the database
+  """
   images: [Image!]!
+
+  """
+  Other images in the same group as the image provided
+  """
+  otherImages(groupId: ID!, id: ID!): [Image!]!
+
+  """
+  All tags in the database
+  """
   tags: [Tag!]!
 }
 

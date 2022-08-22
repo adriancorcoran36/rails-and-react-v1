@@ -50,8 +50,18 @@ export type Mutation = {
 
 export type Query = {
   __typename?: 'Query';
+  /** All images in the database */
   images: Array<Image>;
+  /** Other images in the same group as the image provided */
+  otherImages: Array<Image>;
+  /** All tags in the database */
   tags: Array<Tag>;
+};
+
+
+export type QueryOtherImagesArgs = {
+  groupId: Scalars['ID'];
+  id: Scalars['ID'];
 };
 
 export type Tag = {
