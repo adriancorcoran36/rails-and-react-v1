@@ -76,7 +76,7 @@ export type Tag = {
 export type ImagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ImagesQuery = { __typename?: 'Query', images: Array<{ __typename?: 'Image', id: string, title: string }> };
+export type ImagesQuery = { __typename?: 'Query', images: Array<{ __typename?: 'Image', id: string, title: string, tags?: Array<{ __typename?: 'Tag', id: string, title: string }> | null }> };
 
 
 export const ImagesDocument = gql`
@@ -84,6 +84,10 @@ export const ImagesDocument = gql`
   images {
     id
     title
+    tags {
+      id
+      title
+    }
   }
 }
     `;

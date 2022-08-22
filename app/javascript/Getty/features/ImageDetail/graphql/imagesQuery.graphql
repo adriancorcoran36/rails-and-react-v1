@@ -2,5 +2,9 @@ query Images {
   images {
     id
     title
+    tags {
+      id
+      title
+    }
   }
 }
