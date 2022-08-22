@@ -3,8 +3,9 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+#   movies = Movie.create([{ title: 'Star Wars' }, { title: 'Lord of the Rings' }])
+#   Character.create(title: 'Luke', movie: movies.first)
+
 Image.create!(
   group_id: "75863",
   creative_number: 1401474061,
@@ -64,3 +65,13 @@ Image.create!(
   collection: "E+",
   release_info: "Model and property released"
 )
+
+Tag.create!([
+  { image_id: 1, title: "Podcasting" },
+  { image_id: 1, title: "Adult" },
+  { image_id: 1, title: "African Ethnicity" },
+  { image_id: 1, title: "Audio Equipment" },
+  { image_id: 2, title: "Business Casual" },
+  { image_id: 2, title: "Candid" },
+  { image_id: 3, title: "Colour Image" },
+  ])

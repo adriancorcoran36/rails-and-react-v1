@@ -20,6 +20,7 @@ module Types
     field :licence_type, String
     field :collection, String
     field :release_info, String
+    field :tags, [Types::TagType]
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end

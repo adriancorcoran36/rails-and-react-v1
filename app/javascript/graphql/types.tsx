@@ -37,6 +37,7 @@ export type Image = {
   smallDetails: Scalars['String'];
   smallPrice: Scalars['Int'];
   subtitle?: Maybe<Scalars['String']>;
+  tags?: Maybe<Array<Tag>>;
   title: Scalars['String'];
   updatedAt: Scalars['ISO8601DateTime'];
 };
@@ -50,6 +51,16 @@ export type Mutation = {
 export type Query = {
   __typename?: 'Query';
   images: Array<Image>;
+  tags: Array<Tag>;
+};
+
+export type Tag = {
+  __typename?: 'Tag';
+  createdAt: Scalars['ISO8601DateTime'];
+  id: Scalars['ID'];
+  imageId: Scalars['ID'];
+  title: Scalars['String'];
+  updatedAt: Scalars['ISO8601DateTime'];
 };
 
 export type ImagesQueryVariables = Exact<{ [key: string]: never; }>;
