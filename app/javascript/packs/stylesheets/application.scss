@@ -9,8 +9,27 @@ body {
   color: $color-almost-black;
 }
 
-section {
-  padding: 1em;
+h1 {
+  font-size: 1.1em;
+  font-weight: 200;
+}
+
+h2 {
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+h4 {
+  font-weight: 500;
+}
+
+p {
+  font-weight: 300;
 }
 
 section#header {
@@ -18,6 +37,7 @@ section#header {
   grid-template-columns: auto 210px auto;
   justify-content: space-between;
   align-items: center;
+  padding: 1em;
 
   a {
     font-size: 0.875rem;
@@ -39,14 +59,149 @@ section#header {
   }
 }
 
-section#image-detail {
-  // display: grid;
-  // grid-template-columns: auto 210px auto;
-  // justify-content: space-between;
-  // align-items: center;
+section#image-details {
+  display: grid;
+  grid-template-columns: auto 33%;
+  border: 1px solid $color-grey-border;
 
+  #image-detail {
+    #single-image {
+      background-color: $color-grey;
+      padding-bottom: 8em;
+
+      h1 {
+        padding: 2em 2em 0.5em;
+      }
+
+      h2 {
+        padding: 0em 2.4em 2em;
+      }
+    }
+
+    #related-images {
+      display: grid;
+      grid-template-columns: repeat(3, 220px);
+      grid-column-gap: 0.1em;
+      justify-items: center;
+      align-items: center;
+      max-height: 150px;
+
+      p {
+        text-transform: uppercase;
+      }
+
+      img {
+        max-height: 150px;
+      }
+    }
+  }
+
+  #buy-image-meta {
+    display: grid;
+    grid-template-rows: auto 230px;
+
+    #buy-image {
+      padding: 1em 2em 2em;
+
+      h3 {
+        font-size: 0.9em;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 1em;
+      }
+
+      p {
+        font-size: 0.85em;
+      }
+
+      ul {
+        border: 1px solid $color-grey-border;
+        border-radius: 5px;
+        padding: 0;
+
+        li {
+          border-bottom: 1px solid $color-grey-border;
+          list-style: none;
+          padding: 1em;
+
+          &:last-of-type {
+            border-bottom: none;
+          }
+
+          &.on {
+            background-color: $color-grey;
+          }
+
+          p.price-line-details {
+            font-size: 0.7em;
+            max-width: 70%;
+            color: $color-dark-grey;
+          }
+
+          p.price-line {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1em;
+            font-weight: 300;
+          }
+        }
+      }
+
+      p.selected-price {
+        font-size: 1.7em;
+        text-align: center;
+        font-weight: 300;
+      }
+
+      a.cta-primary {
+        display: block;
+        font-size: 1.1em;
+        font-weight: 300;
+        background-color: $color-purple;
+        border: 1px solid $color-purple;
+        border-radius: 0.3125em;
+        color: $color-white;
+        padding: 0.9em;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 0.375rem 0;
+      }
+    }
+
+    #image-meta {
+      padding: 3em 2em;
+      background-color: $color-grey;
+
+      h4 {
+        text-transform: uppercase;
+        margin-bottom: 1em;
+      }
+
+      p {
+        display: grid;
+        grid-template-columns: 33% auto;
+        font-size: 0.8em;
+      }
+
+      a {
+        color: $color-purple;
+      }
+    }
+  }
+}
+
+// justify-content: space-between;
+// align-items: center;
+section {
   #image-tags {
+    text-align: center;
+    padding: 1em;
+
     a {
+      display: inline-block;
       background-color: $color-white;
       border: 1px solid $color-purple;
       border-radius: 0.3125em;
@@ -56,7 +211,9 @@ section#image-detail {
       text-decoration: none;
       transition: all 0.3s ease;
       margin: 0.375rem;
-      s &:hover {
+
+      &:hover {
+        cursor: pointer;
         background-color: $color-purple;
         color: $color-white;
       }
@@ -74,7 +231,6 @@ footer {
   h4 {
     padding-bottom: 2em;
     text-transform: uppercase;
-    font-weight: 500;
   }
 
   p {

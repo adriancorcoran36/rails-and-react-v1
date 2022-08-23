@@ -83,7 +83,7 @@ export type SingleImageQueryVariables = Exact<{
 }>;
 
 
-export type SingleImageQuery = { __typename?: 'Query', singleImage: { __typename?: 'Image', id: string, title: string, tags?: Array<{ __typename?: 'Tag', id: string, title: string }> | null } };
+export type SingleImageQuery = { __typename?: 'Query', singleImage: { __typename?: 'Image', id: string, handle: string, title: string, subtitle?: string | null, creativeNumber: number, extraSmallPrice: number, extraSmallDetails: string, smallPrice: number, smallDetails: string, mediumPrice: number, mediumDetails: string, largePrice: number, largeDetails: string, credit?: string | null, licenceType?: string | null, collection?: string | null, releaseInfo?: string | null, tags?: Array<{ __typename?: 'Tag', id: string, title: string }> | null, relatedImages?: Array<{ __typename?: 'Image', handle: string, title: string, creativeNumber: number }> | null } };
 
 
 export const ImagesDocument = gql`
@@ -129,10 +129,30 @@ export const SingleImageDocument = gql`
     query SingleImage($id: ID!) {
   singleImage(id: $id) {
     id
+    handle
     title
+    subtitle
+    creativeNumber
+    extraSmallPrice
+    extraSmallDetails
+    smallPrice
+    smallDetails
+    mediumPrice
+    mediumDetails
+    largePrice
+    largeDetails
+    credit
+    licenceType
+    collection
+    releaseInfo
     tags {
       id
       title
+    }
+    relatedImages {
+      handle
+      title
+      creativeNumber
     }
   }
 }

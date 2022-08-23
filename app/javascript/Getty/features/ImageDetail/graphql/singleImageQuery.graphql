@@ -1,10 +1,30 @@
 query SingleImage($id: ID!) {
   singleImage(id: $id) {
     id
+    handle
     title
+    subtitle
+    creativeNumber
+    extraSmallPrice
+    extraSmallDetails
+    smallPrice
+    smallDetails
+    mediumPrice
+    mediumDetails
+    largePrice
+    largeDetails
+    credit
+    licenceType
+    collection
+    releaseInfo
     tags {
       id
       title
+    }
+    relatedImages {
+      handle
+      title
+      creativeNumber
     }
   }
 }
