@@ -21,6 +21,7 @@ module Types
     field :collection, String
     field :release_info, String
     field :tags, [Types::TagType]
+    field :related_images, [Types::ImageType]
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end

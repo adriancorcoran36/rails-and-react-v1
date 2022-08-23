@@ -18,6 +18,7 @@ type Image {
   licenceType: String
   mediumDetails: String!
   mediumPrice: Int!
+  relatedImages: [Image!]
   releaseInfo: String
   smallDetails: String!
   smallPrice: Int!
@@ -39,11 +40,6 @@ type Query {
   All images in the database
   """
   images: [Image!]!
-
-  """
-  Other images in the same group as the image provided
-  """
-  otherImages(groupId: ID!, id: ID!): [Image!]!
 
   """
   Information on a single image

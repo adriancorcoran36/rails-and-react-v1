@@ -7,7 +7,6 @@
 #   Character.create(title: 'Luke', movie: movies.first)
 
 Image.create!(
-  group_id: "75863",
   creative_number: 1401474061,
   handle: "entrepreneur-interviewed-on-a-podcast-royalty-free-image",
   title: "Entrepreneur interviewed on a podcast - stock photo",
@@ -27,7 +26,6 @@ Image.create!(
 )
 
 Image.create!(
-  group_id: "75863",
   creative_number: 1401474060,
   handle: "happy-young-woman-talking-in-a-podcast-royalty-free-image",
   title: "Happy young woman talking in a podcast - stock photo",
@@ -47,7 +45,6 @@ Image.create!(
 )
 
 Image.create!(
-  group_id: "75863",
   creative_number: 1401474042,
   handle: "radio-host-podcasting-at-work-royalty-free-image",
   title: "Radio host podcasting at work - stock photo",
@@ -74,4 +71,9 @@ Tag.create!([
   { image_id: 2, title: "Business Casual" },
   { image_id: 2, title: "Candid" },
   { image_id: 3, title: "Colour Image" },
+  ])
+
+RelatedImage.create!([
+  { image_id: 1, related_image_id: 2 },
+  { image_id: 1, related_image_id: 3 },
   ])

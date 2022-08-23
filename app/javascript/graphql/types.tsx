@@ -33,6 +33,7 @@ export type Image = {
   licenceType?: Maybe<Scalars['String']>;
   mediumDetails: Scalars['String'];
   mediumPrice: Scalars['Int'];
+  relatedImages?: Maybe<Array<Image>>;
   releaseInfo?: Maybe<Scalars['String']>;
   smallDetails: Scalars['String'];
   smallPrice: Scalars['Int'];
@@ -52,18 +53,10 @@ export type Query = {
   __typename?: 'Query';
   /** All images in the database */
   images: Array<Image>;
-  /** Other images in the same group as the image provided */
-  otherImages: Array<Image>;
   /** Information on a single image */
   singleImage: Image;
   /** All tags in the database */
   tags: Array<Tag>;
-};
-
-
-export type QueryOtherImagesArgs = {
-  groupId: Scalars['ID'];
-  id: Scalars['ID'];
 };
 
 

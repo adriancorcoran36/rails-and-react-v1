@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2022_08_22_221626) do
 
   create_table "images", force: :cascade do |t|
-    t.integer "group_id", null: false
     t.integer "creative_number", null: false
     t.string "handle", null: false
     t.string "title", null: false
@@ -33,6 +32,13 @@ ActiveRecord::Schema.define(version: 2022_08_22_221626) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
+  create_table "related_images", :force => true do |t|
+    t.integer  "image_id"
+    t.integer  "related_image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end  
 
   create_table "tags", force: :cascade do |t|
     t.belongs_to :image, index: true
