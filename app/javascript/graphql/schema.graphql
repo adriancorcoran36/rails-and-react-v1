@@ -46,6 +46,11 @@ type Query {
   otherImages(groupId: ID!, id: ID!): [Image!]!
 
   """
+  Information on a single image
+  """
+  singleImage(id: ID!): Image!
+
+  """
   All tags in the database
   """
   tags: [Tag!]!

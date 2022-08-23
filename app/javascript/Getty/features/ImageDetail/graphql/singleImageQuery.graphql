@@ -1,0 +1,10 @@
+query SingleImage($id: ID!) {
+  singleImage(id: $id) {
+    id
+    title
+    tags {
+      id
+      title
+    }
+  }
+}

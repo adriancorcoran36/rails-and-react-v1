@@ -54,6 +54,8 @@ export type Query = {
   images: Array<Image>;
   /** Other images in the same group as the image provided */
   otherImages: Array<Image>;
+  /** Information on a single image */
+  singleImage: Image;
   /** All tags in the database */
   tags: Array<Tag>;
 };
@@ -61,6 +63,11 @@ export type Query = {
 
 export type QueryOtherImagesArgs = {
   groupId: Scalars['ID'];
+  id: Scalars['ID'];
+};
+
+
+export type QuerySingleImageArgs = {
   id: Scalars['ID'];
 };
 
@@ -77,6 +84,13 @@ export type ImagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type ImagesQuery = { __typename?: 'Query', images: Array<{ __typename?: 'Image', id: string, title: string, tags?: Array<{ __typename?: 'Tag', id: string, title: string }> | null }> };
+
+export type SingleImageQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type SingleImageQuery = { __typename?: 'Query', singleImage: { __typename?: 'Image', id: string, title: string, tags?: Array<{ __typename?: 'Tag', id: string, title: string }> | null } };
 
 
 export const ImagesDocument = gql`
@@ -118,3 +132,43 @@ export function useImagesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Ima
 export type ImagesQueryHookResult = ReturnType<typeof useImagesQuery>;
 export type ImagesLazyQueryHookResult = ReturnType<typeof useImagesLazyQuery>;
 export type ImagesQueryResult = Apollo.QueryResult<ImagesQuery, ImagesQueryVariables>;
+export const SingleImageDocument = gql`
+    query SingleImage($id: ID!) {
+  singleImage(id: $id) {
+    id
+    title
+    tags {
+      id
+      title
+    }
+  }
+}
+    `;
+
+/**
+ * __useSingleImageQuery__
+ *
+ * To run a query within a React component, call `useSingleImageQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSingleImageQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSingleImageQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useSingleImageQuery(baseOptions: Apollo.QueryHookOptions<SingleImageQuery, SingleImageQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<SingleImageQuery, SingleImageQueryVariables>(SingleImageDocument, options);
+      }
+export function useSingleImageLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SingleImageQuery, SingleImageQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<SingleImageQuery, SingleImageQueryVariables>(SingleImageDocument, options);
+        }
+export type SingleImageQueryHookResult = ReturnType<typeof useSingleImageQuery>;
+export type SingleImageLazyQueryHookResult = ReturnType<typeof useSingleImageLazyQuery>;
+export type SingleImageQueryResult = Apollo.QueryResult<SingleImageQuery, SingleImageQueryVariables>;
